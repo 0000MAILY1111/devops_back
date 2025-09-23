@@ -49,3 +49,6 @@ jest/
 *.spec.js
 *.test.js
 .nyc_output/
+
+
+.github/
