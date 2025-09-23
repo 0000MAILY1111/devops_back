@@ -12,7 +12,7 @@ connectDB ( )
 
 const app = express();
 app.use(express.json());  
-//app.use (cors (corsConfig)); // Configuración de CORS , si no se soluciono el error de cors comentar la linea
+app.use (cors (corsConfig)); // Configuración de CORS , si no se soluciono el error de cors comentar la linea
 
 const PORT: number = parseInt(process.env.PORT || '4000', 10);
 app.listen(PORT, () => {
