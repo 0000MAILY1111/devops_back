@@ -10,9 +10,13 @@ import authRoutes from './routes/authRoutes';
 
 
 dotenv.config(); 
+console.log('🔄 Iniciando aplicación...');
+console.log('📁 DATABASE_URL:', process.env.DATABASE_URL ? 'Configurada' : 'No configurada');
+console.log('🌐 FRONTEND_URL:', process.env.FRONTEND_URL);
+
 connectDB(); 
 const app = express();  
-//app.use ( cors (corsConfig))
+app.use(cors(corsConfig)); // Configuración de CORS habilitada
 
 app.use(express.json());
 // Servir archivos estáticos desde la carpeta 'public'  //esto es para el frontend

@@ -1,2 +1,2 @@
-DATABASE_URL=
-FRONTEND_URL=
+DATABASE_URL=mongodb://localhost:27017/devops_back
+FRONTEND_URL=http://localhost:5173
