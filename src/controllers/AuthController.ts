@@ -80,7 +80,6 @@ export  class AuthController {
             token.user = user.id
             token.token = generateToken()
             await token.save()
-
       
             AuthEmail.sendConfirmationEmail({
                email: user.email,

@@ -5,11 +5,13 @@ export class ProjectController {
 
     static createProject = async (req: Request, res: Response) => {
             const project = new Project (req.body);
+            
             try {
                 await project.save();
                 res.send("proyecto creado correctamente");
             }catch (error) {
-                console.log(error);     
+                console.log(error);
+                res.status(500).json({error: "Error en el servidor"});
             }
     }
 
