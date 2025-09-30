@@ -65,11 +65,13 @@ router.get("/:projectId/tasks",
     TaskController.getProjectTasks
 );
 
-router.get("/:projectId/tasks/:taskId",     
-    param("taskId").isMongoId().withMessage("El id de la tarea no es válido"),     
-    handleInputErrors,     
-    TaskController.getTaskById
-);
+/*  router.get("/:projectId/tasks/:taskId",     
+     param("taskId").isMongoId().withMessage("El id de la tarea no es válido"),     
+     handleInputErrors,     
+     TaskController.getTaskById
+); */
+router.get("/:projectId/tasks/:taskId",         
+    TaskController.getTaskById);
 
 router.put("/:projectId/tasks/:taskId",     
     param("taskId").isMongoId().withMessage("El id de la tarea no es válido"),     
