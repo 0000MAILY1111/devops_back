@@ -6,6 +6,7 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 
+projects/
 # Archivos de entorno
 .env
 .env.local

@@ -7,6 +7,7 @@ import path from 'path';
 
 import projectRoutes from './routes/projectRoutes';
 import authRoutes from './routes/authRoutes';
+import deployRouter from './routes/deployRoutes';
 
 
 dotenv.config(); 
@@ -30,5 +31,6 @@ app.listen(PORT, () => {
 
 app.use ('/api/projects', projectRoutes  );
 app.use ('/api/auth', authRoutes  );
+app.use ('/api/deploy', deployRouter)
 // Ruta de prueba
 export default app;
