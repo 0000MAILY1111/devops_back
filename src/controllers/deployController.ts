@@ -18,6 +18,8 @@ export class DeployController {
     const projectId = `proj_${Date.now()}`;
     const projectPath = path.join(projectsDir, projectId);
 
+    console.log("Desplegando proyecto")
+
     try {
       // 1. Clonar repo si viene URL
       if (repoUrl) {

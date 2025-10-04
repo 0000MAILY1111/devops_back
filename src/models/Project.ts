@@ -1,5 +1,6 @@
-import mongoose, {Schema, Document, PopulatedDoc, Types}  from "mongoose";
+import mongoose, {Schema, Document, PopulatedDoc, Types, DocumentSetOptions}  from "mongoose";
 import  { Itask } from "./Task";
+import { IRepository } from "./Repository";
 
 ///typo de datos Ts
 export interface IProject extends Document {
@@ -7,6 +8,7 @@ export interface IProject extends Document {
     clientName: string;    
     description: string;
     tasks : PopulatedDoc <Itask & Document > []
+    urls: PopulatedDoc <IRepository & Document> []
 }
 ///typo de dato Mongose
 const ProjectShema : Schema  = new Schema({
@@ -28,6 +30,10 @@ const ProjectShema : Schema  = new Schema({
     tasks : [{
         type : Types.ObjectId,
         ref : "Task"
+    }],
+    urls : [{
+        type : Types.ObjectId,
+        ref : "Repository" 
     }]
      
 }, {timestamps: true} );
