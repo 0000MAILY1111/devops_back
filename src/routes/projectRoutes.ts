@@ -6,6 +6,7 @@ import { handleInputErrors } from "../middleware/validation";
 import Project from "../models/Project"; 
 import { projectExists } from "../middleware/project"; 
 import { taskBelongsToProject, TaskExists } from "../middleware/task";   
+import { RepositoryController } from "../controllers/RepositoriesControllers";
 
 const router = Router(); 
 router.param("projectId", projectExists);  
@@ -95,6 +96,28 @@ router.post("/:projectId/tasks/:taskId/status",
         .notEmpty().withMessage("El estado de la tarea es requerido"),     
     handleInputErrors,     
     TaskController.updateTaskStatus
+);
+
+// Crear un repositorio para un proyecto
+router.post(
+    "/:projectId/repositories",
+    body("repositoryName").notEmpty().withMessage("El nombre del repositorio es requerido"),
+    handleInputErrors,
+    RepositoryController.createRepository
+);
+
+// Obtener todos los repositorios de un proyecto
+router.get(
+    "/:projectId/repositories",
+    RepositoryController.getProjectRepositories
+);
+
+// Obtener un repositorio por id
+router.get(
+    "/:projectId/repositories/:repoId",
+    param("repoId").isMongoId().withMessage("El id del repositorio no es válido"),
+    handleInputErrors,
+    RepositoryController.getRepositoryById
 );
 
 export default router;
