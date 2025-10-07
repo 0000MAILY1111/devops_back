@@ -8,7 +8,9 @@ import path from "path";
 
 
 //const docker = new Docker({ socketPath: "/var/run/docker.sock" });
-const docker = new Docker({ host: "localhost", port: 2375 });
+const docker = new Docker({ 
+  socketPath: '/home/carlos/.docker/desktop/docker.sock' 
+});
 const projectsDir = path.join(__dirname, "../../projects");
 if (!fs.existsSync(projectsDir)) fs.mkdirSync(projectsDir);
 
